@@ -129,17 +129,17 @@
   
       <div class="flex">
       <div class="article">
-        <form action="/home" method="GET">
+        <form method="POST" action="/home">
           <div class="center">
             <hr>
-            <p>表示名<span class="required"><small>必須</small></span>　　　　　　　<input type="text"></p>
+            <p>表示名<span class="required"><small>必須</small></span>　　　　　　　<input type="text" name="name"></p>
             <hr>
-            <p>メールアドレス<span class="required"><small>必須</small></span>　　<input type="email"></p>
+            <p>メールアドレス<span class="required"><small>必須</small></span>　　<input type="email" name="mail"></p>
             <hr>
             <p>トップ画像　　　　<input type="file" id="myImage" accept="image/*"></p>
             <p class="preview"><img src="/images/people.png" id="preview"></p>
             <hr>
-            <p>パスワード<span class="required"><small>必須</small></span>　　　　<input type="password"></p>
+            <p>パスワード<span class="required"><small>必須</small></span>　　　　<input type="password" name="password"></p>
             <p>パスワード確認<span class="required"><small>必須</small></span>　　<input type="password"></p>
             <p class="button"><input type="submit" value="登録"></p>
           </div>
