@@ -1,0 +1,65 @@
+/*      */
+/* 共通  */
+/*      */
+* {
+    margin :0;
+    padding: 0;
+    text-align: center;
+}
+
+hr {
+    opacity: 50%;
+}
+
+/*          */
+/* ヘッダー  */
+/*          */
+header {
+    padding: 20px 0;
+    background-color: rgb(250, 170, 51);
+    text-align: left;
+}
+
+header p {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/*         */
+/* フッター  */
+/*         */
+footer {
+    padding: 20px 0;
+    background-color: rgb(250, 170, 51);
+}
+
+
+/*        */
+/* メイン  */
+/*        */
+.main {
+    margin: auto;
+    height: 750px;
+}
+
+
+/* トップ */
+.top {
+    padding-bottom: 40px;
+}
+
+.company-name {
+    font-family: cursive;
+    font-size: 50px;
+    padding: 40px 0 15px;
+}
+
+.login {
+    text-align: center;
+    width: 100px;
+}
+
+/* サイド */
+.side {
+    flex-basis: 40%;
+}

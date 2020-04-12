@@ -97,7 +97,11 @@
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       ui.start('#firebaseui-auth-container', uiConfig);
 
-       //画像が追加されたら
+
+      //----------------------------------------------
+      // jQueryの設定
+      //----------------------------------------------
+      //画像が追加されたら
       $(function(){
         $('#myImage').on('change', function (e) {
           var reader = new FileReader();
@@ -133,7 +137,7 @@
             <p>メールアドレス<span class="required"><small>必須</small></span>　　<input type="email"></p>
             <hr>
             <p>トップ画像　　　　<input type="file" id="myImage" accept="image/*"></p>
-            <p class="preview"><img src="images/people.png" id="preview"></p>
+            <p class="preview"><img src="/images/people.png" id="preview"></p>
             <hr>
             <p>パスワード<span class="required"><small>必須</small></span>　　　　<input type="password"></p>
             <p>パスワード確認<span class="required"><small>必須</small></span>　　<input type="password"></p>

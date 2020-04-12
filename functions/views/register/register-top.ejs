@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/register/register-top.css">
+    <title>[firebase] my-sample-project</title>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyARPrcJ4HENCyYx1xWOnr5Z386jlj4ir2g",
+        authDomain: "fir-node-c52fc.firebaseapp.com",
+        databaseURL: "https://fir-node-c52fc.firebaseio.com",
+        projectId: "fir-node-c52fc",
+        storageBucket: "fir-node-c52fc.appspot.com",
+        messagingSenderId: "571278361366",
+        appId: "1:571278361366:web:05147e6e6f71c1f5d70637"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    //Analytics
+    firebase.analytics();
+    </script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <script>
+      //----------------------------------------------
+      // Firebase UIの設定
+      //----------------------------------------------
+      var uiConfig = {
+          callbacks: {
+            signInSuccess: function(currentUser, credential, redirectUrl) {
+              // サインイン成功時のコールバック関数
+              // 戻り値で自動的にリダイレクトするかどうかを指定
+              return true;
+            },
+            uiShown: function() {
+            // FirebaseUIウィジェット描画完了時のコールバック関数
+
+            // 読込中で表示しているローダー要素を消す
+            document.getElementById('loader').style.display = 'none';
+            }
+          },
+          // リダイレクトではなく、ポップアップでサインインフローを表示
+          signInFlow: 'popup',
+
+          //ログイン時のリダイレクト先
+          signInSuccessUrl: '/home',
+
+          //利用する認証機能
+          signInOptions: [
+            {
+              provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            },
+            {
+              // サポートするプロバイダ(メールアドレス)を指定
+              provider:firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            },
+            {
+              provider:firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+              scopes: [
+                'public_profile',
+                'email',
+                'user_likes',
+                'user_friends'
+              ],
+              customParameters: {
+                // Forces password re-entry.
+                auth_type: 'reauthenticate'
+              }
+            },
+            {
+              provider:firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+              requireDisplayName: false
+            },
+            {
+              provider:firebase.auth.GithubAuthProvider.PROVIDER_ID,
+              requireDisplayName: false
+            }
+          ],
+          // 利用規約のURL(任意)
+          tosUrl: 'privacy.html',
+          // プライバシーポリシーのURL(任意)
+          privacyPolicyUrl: 'privacy.html'
+      };
+
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <a href="/home">Topへ</a>
+    </header>
+      
+    <div class="main">
+      <div class="top">
+        <div id="loader">Loading...</div>
+        <div class="company-name">VOGUE</div>
+        <div class="description">ユーザー登録する</div>
+        <div id="login"></div>
+      </div>
+  
+      <div class="side">
+        <div id="firebaseui-auth-container"></div>
+      </div>
+    </div>
+    </div>
+
+    <footer>
+      <p><small>2020 by Hana</small></p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </body>
+</html>
