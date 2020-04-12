@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meat charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/home.css">
+    <title>Using FirebaseUI Auth, on the Web</title>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+          apiKey: "AIzaSyBM4wnow8KBd2vjdlWfIyARAqp0shovcaE",
+          authDomain: "express-6b16e.firebaseapp.com",
+          databaseURL: "https://express-6b16e.firebaseio.com",
+          projectId: "express-6b16e",
+          storageBucket: "express-6b16e.appspot.com",
+          messagingSenderId: "711055930536",
+          appId: "1:711055930536:web:35e75a374dfbfe077d3e9d"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="left">
+        <a href="/home"><img class="logo" src="images/logo2.png"></a>
+        <div class="left-bar"> 
+            <a class="left-item" href="/home">ホーム</a>
+            <a class="left-item" href="/explore">検索</a>
+            <a class="left-item" href="/tweet">送信する</a>
+            <a class="left-item" href="/register">登録する</a>
+        </div>
+        <div>
+            <div>Yamada Taro</div>
+            <div><img src="/images/people.png"></div>
+            <div>@yamada</div>
+            <div>こんにちは！20歳大学生です。メイクを学ぶために始めました。気軽に絡んでください。</div>
+            <a href="/user">プロフィール</a>
+        </div>
+        <div>
+              
+        </div>
+      </div>
+
+      <div class="center">
+        <form>
+            <p>ホーム</p>
+            <img src="/images/people.png">
+            <p>message:<textarea id="message"></textarea><input type="submit" value="送信"></p>
+            <hr>
+        </form>
+      </div>
+
+      <div class="right">
+          <div class="right-bar">
+            <input class="right-item" type="text" value="検索">
+            <a class="right-item" href="/category">カテゴリ</a>
+            <a class="right-item" href="/bland">ブランド</a>
+          </div>
+          <div>
+              <div>ユーザー一覧</div>
+              <div>
+                  <div>
+                      <img src="/images/people.png">Yamada Taro
+                  </div>
+                  <div>
+                    <img src="/images/people.png">Yamada Taro
+                  </div>
+                  <div>
+                    <img src="/images/people.png">Yamada Taro
+                  </div>
+                  <div>
+                    <img src="/images/people.png">Yamada Taro
+                  </div>
+                  <div>
+                    <img src="/images/people.png">Yamada Taro
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    </div>
+    </script>
+  </body>
+</html>
