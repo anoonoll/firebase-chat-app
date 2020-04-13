@@ -4,6 +4,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+firebase = require("firebase");
+require("firebase/auth");
+require("firebase/firestore");
 
 var index = require('./routes/index');
 var home = require('./routes/home');
@@ -24,12 +28,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var session_opt = {
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 60 * 60 * 1000}
+}
+
+app.use(session(session_opt));
+
 app.use('/index', index);
+app.use('/top', top);
 app.use('/home', home);
 app.use('/explore', explore);
 app.use('/register', register);
 app.use('/login', login);
-app.use('/', top);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
